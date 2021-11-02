@@ -29,7 +29,7 @@ extension Double {
     /// ```
     /// Convert 1234.56 to "$1,234.56"
     /// ```
-    func asCurrencyWith2Decimals() -> String {
+    var asCurrencyWith2Decimals: String {
         let number = NSNumber(value: self)
         return currencyFormatter2.string(from: number) ?? "$0.00"
     }
@@ -59,7 +59,7 @@ extension Double {
     /// Convert 12.3456 to "$12.3456"
     /// Convert 0.123456 to "$0.123456"
     /// ```
-    func asCurrencyWith6Decimals() -> String {
+    var asCurrencyWith6Decimals: String {
         let number = NSNumber(value: self)
         return currencyFormatter6.string(from: number) ?? "$0.00"
     }
@@ -68,7 +68,7 @@ extension Double {
     /// ```
     /// Convert 1.2345 to "1.23"
     /// ```
-    func asNumberString() -> String {
+    var asNumberString: String {
         return String(format: "%.2f", self)
     }
     
@@ -76,8 +76,8 @@ extension Double {
     /// ```
     /// Convert 1.2345 to "1.23%"
     /// ```
-    func asPercentString() -> String {
-        return asNumberString() + "%"
+    var asPercentString: String {
+        return asNumberString + "%"
     }
     
     
@@ -98,22 +98,22 @@ extension Double {
         switch num {
         case 1_000_000_000_000...:
             let formatted = num / 1_000_000_000_000
-            let stringFormatted = formatted.asNumberString()
+            let stringFormatted = formatted.asNumberString
             return "\(sign)\(stringFormatted)Tr"
         case 1_000_000_000...:
             let formatted = num / 1_000_000_000
-            let stringFormatted = formatted.asNumberString()
+            let stringFormatted = formatted.asNumberString
             return "\(sign)\(stringFormatted)Bn"
         case 1_000_000...:
             let formatted = num / 1_000_000
-            let stringFormatted = formatted.asNumberString()
+            let stringFormatted = formatted.asNumberString
             return "\(sign)\(stringFormatted)M"
         case 1_000...:
             let formatted = num / 1_000
-            let stringFormatted = formatted.asNumberString()
+            let stringFormatted = formatted.asNumberString
             return "\(sign)\(stringFormatted)K"
         case 0...:
-            return self.asNumberString()
+            return self.asNumberString
 
         default:
             return "\(sign)\(self)"
