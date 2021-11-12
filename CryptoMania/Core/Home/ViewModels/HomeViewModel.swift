@@ -21,11 +21,36 @@ class HomeViewModel: ObservableObject {
     }
     
     private func addSubscribers() {
-        dataService.$allCoins
-            .sink { [weak self] receivedCoins in
-                guard let self = self else { return }
-                self.allCoins = receivedCoins
+//No needed given that bellow subscription resolved the updating as well
+//        dataService.$allCoins
+//            .sink { [weak self] receivedCoins in
+//                guard let self = self else { return }
+//                self.allCoins = receivedCoins
+//            }
+//            .store(in: &cancellables)
+        
+        $searchText
+            .combineLatest(dataService.$allCoins)
+            .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
+            .map(filterCoins)
+            .sink { [weak self] returnedCoins in
+                self?.allCoins = returnedCoins
             }
             .store(in: &cancellables)
+    }
+    
+    private func filterCoins(text: String, coins: [CoinModel]) -> [CoinModel] {
+        guard !text.isEmpty else {
+            return coins
+        }
+        
+        let lowercaseText = text.lowercased()
+        let filteredCoins = coins.filter({
+            return $0.name.lowercased().contains(lowercaseText) ||
+                $0.symbol.lowercased().contains(lowercaseText) ||
+                $0.id.lowercased().contains(lowercaseText)
+        })
+        
+        return filteredCoins
     }
 }
