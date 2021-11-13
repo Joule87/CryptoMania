@@ -21,6 +21,8 @@
 		86370D452730073300A3B92E /* CoinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86370D442730073300A3B92E /* CoinModel.swift */; };
 		8659AE1427354BCC00925222 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8659AE1327354BCC00925222 /* SearchBarView.swift */; };
 		8687FCBB272EE1B900842FD2 /* CircleButtonAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8687FCBA272EE1B900842FD2 /* CircleButtonAnimationView.swift */; };
+		8688AEEB273FD6FF0010ACC6 /* MarketDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8688AEEA273FD6FF0010ACC6 /* MarketDataModel.swift */; };
+		8688AEEE273FDA590010ACC6 /* MarketDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8688AEED273FDA590010ACC6 /* MarketDataService.swift */; };
 		8696907D273211090034B324 /* CoinDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8696907C273211090034B324 /* CoinDataService.swift */; };
 		86A87F79272CD6D30019CDE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86A87F78272CD6D30019CDE0 /* Assets.xcassets */; };
 		86A87F86272CD8AA0019CDE0 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A87F80272CD8AA0019CDE0 /* Date.swift */; };
@@ -50,6 +52,8 @@
 		86370D442730073300A3B92E /* CoinModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinModel.swift; sourceTree = "<group>"; };
 		8659AE1327354BCC00925222 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		8687FCBA272EE1B900842FD2 /* CircleButtonAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonAnimationView.swift; sourceTree = "<group>"; };
+		8688AEEA273FD6FF0010ACC6 /* MarketDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDataModel.swift; sourceTree = "<group>"; };
+		8688AEED273FDA590010ACC6 /* MarketDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDataService.swift; sourceTree = "<group>"; };
 		8696907C273211090034B324 /* CoinDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDataService.swift; sourceTree = "<group>"; };
 		86A87F78272CD6D30019CDE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../Resources/Assets.xcassets; sourceTree = "<group>"; };
 		86A87F80272CD8AA0019CDE0 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
@@ -140,6 +144,7 @@
 			children = (
 				86370D442730073300A3B92E /* CoinModel.swift */,
 				8612947B273EB702006F641F /* StatisticModel.swift */,
+				8688AEEA273FD6FF0010ACC6 /* MarketDataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -149,6 +154,7 @@
 			children = (
 				8696907C273211090034B324 /* CoinDataService.swift */,
 				860E9C492732F0CE00528E75 /* CoinImageService.swift */,
+				8688AEED273FDA590010ACC6 /* MarketDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -305,6 +311,7 @@
 				8659AE1427354BCC00925222 /* SearchBarView.swift in Sources */,
 				862878DD272E1BCD00055363 /* HomeView.swift in Sources */,
 				862878E6272E1E9700055363 /* CircleButtonView.swift in Sources */,
+				8688AEEE273FDA590010ACC6 /* MarketDataService.swift in Sources */,
 				8604042327315D9300FEFD35 /* HomeViewModel.swift in Sources */,
 				8612947F273EB81D006F641F /* StatisticView.swift in Sources */,
 				860E9C472732ED6B00528E75 /* CoinImageView.swift in Sources */,
@@ -315,6 +322,7 @@
 				86A87F89272CD8AA0019CDE0 /* Double.swift in Sources */,
 				860E9C4E2732F38200528E75 /* CoinImageViewModel.swift in Sources */,
 				860E9C4A2732F0CE00528E75 /* CoinImageService.swift in Sources */,
+				8688AEEB273FD6FF0010ACC6 /* MarketDataModel.swift in Sources */,
 				8604042027314F4700FEFD35 /* PreviewProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
