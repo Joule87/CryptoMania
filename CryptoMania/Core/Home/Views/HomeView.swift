@@ -19,7 +19,7 @@ struct HomeView: View {
             Color.theme.background
                 .ignoresSafeArea()
                 .sheet(isPresented: $showPortfolioView, content: {
-                    PortfolioView()
+                    PortfolioView(viewModel: PortfolioViewModel())
                         .environmentObject(viewModel)
                 })
             VStack {
