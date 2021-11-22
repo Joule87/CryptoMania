@@ -20,15 +20,4 @@ class PortfolioViewModel: ObservableObject {
         return 0
     }
     
-    func savePortfolio() {
-        guard let coin = selectedCoin else {
-            return
-        }
-        
-        showSavedCheckmark = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.showSavedCheckmark = false
-        }
-    }
-    
 }

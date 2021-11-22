@@ -55,7 +55,7 @@ class HomeViewModel: ObservableObject {
             }
     }
     
-    private func updatePortfolio(coin: CoinModel, amount: Double) {
+    func updatePortfolio(coin: CoinModel, amount: Double) {
         portfolioDataService.updatePortfolio(coin: coin, amount: amount)
     }
     

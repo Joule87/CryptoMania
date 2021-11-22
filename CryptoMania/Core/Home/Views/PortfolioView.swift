@@ -55,7 +55,7 @@ extension PortfolioView {
     private var coinLogoList: some View {
         ScrollView(.horizontal, showsIndicators: false, content: {
             LazyHStack(spacing: 10) {
-                ForEach(homeViewModel.allCoins) { coin in
+                ForEach(homeViewModel.searchText.isEmpty ? homeViewModel.portfolio : homeViewModel.allCoins) { coin in
                     CoinLogoView(coin: coin)
                         .frame(width: 75)
                         .padding(5)
@@ -67,7 +67,7 @@ extension PortfolioView {
                         )
                         .onTapGesture {
                             withAnimation(.easeIn) {
-                                viewModel.selectedCoin = coin
+                                updateSelectedCoin(coin: coin)
                             }
                         }
                 }
@@ -75,6 +75,17 @@ extension PortfolioView {
             .frame(height: 120)
             .padding(.leading)
         })
+    }
+    
+    private func updateSelectedCoin(coin: CoinModel) {
+        viewModel.selectedCoin = coin
+        
+        if let portfolioCoin = homeViewModel.portfolio.first(where: { $0.id == coin.id }),
+           let amount = portfolioCoin.currentHoldings {
+            viewModel.quantityText = String(amount)
+        } else {
+            viewModel.quantityText = ""
+        }
     }
     
     private var portfolioInputSection: some View {
@@ -121,12 +132,24 @@ extension PortfolioView {
     }
     
     private func saveButtonPressed() {
-        // me quede aqui ,,, 
-        viewModel.savePortfolio()
-        withAnimation(.easeOut) {
+        guard let coin = viewModel.selectedCoin, let amount = Double(viewModel.quantityText) else {
+            return
+        }
+        
+        homeViewModel.updatePortfolio(coin: coin, amount: amount)
+        
+        withAnimation(.easeIn) {
+            viewModel.showSavedCheckmark = true
             removeSelectedCoin()
         }
+        
         UIApplication.shared.endEditing()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            withAnimation(.easeOut) {
+                self.viewModel.showSavedCheckmark = false
+            }
+        }
     }
     
     private func removeSelectedCoin() {
